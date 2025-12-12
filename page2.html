@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f2f2f2;
+    overflow: hidden;
+  }
+
+  /* Floating bubble */
+  #bubble {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    background: #ffed29;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+
+  #bubble:hover {
+    transform: scale(1.1);
+  }
+
+  /* Image popup container */
+  #popupContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Image popup */
+  #popupImage {
+    display: block;
+    max-width: 50%;
+    max-height: 50%;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  }
+
+  /* Close button */
+  #closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 400px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="bubble">🌷</div>
+
+<div id="popupContainer">
+  <button id="closeBtn">×</button>
+  <img id="popupImage" src="johan.jpg" alt="Memory Image" />
+</div>
+
+<script>
+  const bubble = document.getElementById('bubble');
+  const popupContainer = document.getElementById('popupContainer');
+  const closeBtn = document.getElementById('closeBtn');
+
+  bubble.addEventListener('click', () => {
+    popupContainer.style.display = 'block';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popupContainer.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
